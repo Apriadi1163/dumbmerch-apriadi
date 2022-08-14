@@ -1,0 +1,63 @@
+.Layer{
+    background-color: black;
+    height: 100vh;
+}
+
+.Container{
+    display: flex;
+    align-items: center;
+    /* background-color: aqua; */
+   
+}
+
+.anouncement{
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 200px;
+    line-height: 76px;
+    color: white;
+}
+
+
+.img{
+    margin-top: 4em;
+}
+
+.btnlogin{
+    border-radius: 5px !important;
+    background: #f74d4d !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 25px;
+    font-size: 18px;
+    margin-right: 0.5em;
+
+    color: #ffffff;
+}
+
+.btnlogin:hover{
+    background: #d11111 !important;
+}
+
+.btnlogin:active{
+    background: #861313 !important;
+}
+
+.btnregister{
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 25px !important;
+    color: #b7b7b7 !important;
+    border-radius: 5px !important;
+    background: #f74d4d;
+}
+
+.btnregister:hover{
+    color: #d11111 !important;
+}
+
+.btnregister:active{
+    color: #861313 !important;
+}
+

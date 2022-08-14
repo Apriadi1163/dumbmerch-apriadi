@@ -1,0 +1,50 @@
+.layer{
+    display: flex;
+    justify-content: center;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.container{
+    background: #181818;
+    border-radius: 10px;
+    max-width: 416px;
+}
+
+.info{
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    color: white;
+}
+
+.btnregister{
+    border-radius: 5px ;
+    background: #f74d4d !important;
+    width: 450px;
+    height: 40px;
+    font-style: normal ;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+
+    color: #ffffff;
+}
+
+.btnregister:hover{
+    background: #d11111 ;
+}
+
+.btnregister:active{
+    background: #861313 ;
+}
+
+.form{
+    width: 500px;
+    height: 40px;
+    margin-bottom: 5px;
+    justify-content: center;
+}

@@ -1,0 +1,24 @@
+body {
+    background-color: #0b0b0b !important;
+    color: #ffffff !important;
+}
+
+.chat-me {
+    background: #262626;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 400px;
+}
+  
+.chat-other {
+    background: #575757;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 400px;
+}

@@ -1,0 +1,32 @@
+.layer{
+    background-color: black;
+    height: 100vh;
+}
+
+.image{
+    width: 400px;
+    height: 450px;
+    margin-top: 1em;
+}
+
+.title{
+    color: red;
+}
+
+.description{
+    color: white;
+}
+
+.price{
+    color: red;
+    justify-content: right;
+    text-align: right;
+}
+
+.btnbuy{
+    background-color: red;
+    color: white;
+    width: 544px;
+    height: 40px;
+
+}

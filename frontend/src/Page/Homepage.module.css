@@ -1,0 +1,22 @@
+.layer{
+    background-color: black;
+    height: 100%;
+}
+
+.title{
+    color: red;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-left: 4.5em;
+}
+
+.name{
+    color: red;
+    /* text-align: center; */
+    margin-left: 3em;
+}
+
+.description{
+    color: white;
+    /* text-align: center; */
+}
