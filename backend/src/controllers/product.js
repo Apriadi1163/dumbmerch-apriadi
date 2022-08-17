@@ -174,14 +174,14 @@ exports.updateProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const data = req.body;
-    // if (req.file) {
-    //   data.image = req.file.filename;
-    // }
+    if (req.file) {
+      data.image = req.file.filename;
+    }
     console.log(data);
     let updateProduct = await product.update(
       {
         ...data,
-        image: req.file.filename,
+        // image: req.file.filename,
         idUser: req.user.id,
       },
       { where: { id } }
@@ -191,15 +191,13 @@ exports.updateProduct = async (req, res) => {
 
     updateProduct = {
       ...updateProduct,
-      image: process.env.PATH_FILE + req.file.filename,
+      image: process.env.PATH_FILE + updateProduct.image,
     };
 
     res.status(200).send({
       status: "Success",
       message: `Update product at id: ${id} success`,
-      data: {
-        products: updateProduct,
-      },
+      updateProduct,
     });
   } catch (error) {
     console.log(error);
