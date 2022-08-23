@@ -5,6 +5,7 @@ import { API } from "../config/api"
 import CssRegister from "./Register.module.css"
 
 function Register(){
+    const [message, setMessage] = useState(null);
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -40,8 +41,36 @@ function Register(){
             console.log(response)
 
             //Notification
+            if (response.status == 200){
+                const alert = (
+                    <div className='alert alert-success py-2 fw-bold' role='alert'>
+                        Register Success
+                    </div>
+                )
+
+                setMessage(alert)
+                setForm({
+                    name: "",
+                    email: "",
+                    password: "",
+                })
+            } else{
+                const alert = (
+                    <div className='alert alert-danger py-2 fw-bold' role='alert'>
+                        Email telah ada
+                    </div>
+                )
+                setMessage(alert)
+            }
+            
         }catch(error){
-            // console.log(error)
+            console.log(error)
+            const alert = (
+                <div className='alert alert-danger py-2 fw-bold' role='alert'>
+                    Server Error
+                </div>
+            )
+            setMessage(alert)
         }
         
 
@@ -54,6 +83,7 @@ function Register(){
                 <Col md="6">
                     <Form onSubmit={(e) => handleSubmit.mutate(e)} >
                         <div className={CssRegister.info}>Register</div>
+                        {message && message}
                         <Form.Group className={CssRegister.form}>
                             <Form.Control 
                                 onChange={handleChange}

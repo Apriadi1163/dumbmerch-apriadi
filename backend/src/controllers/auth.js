@@ -19,6 +19,17 @@ exports.register = async (req, res) => {
             },
         });
     try{
+        const emailExist = await user.findOne({
+            where:{
+                email: req.body.email,
+            }
+        })
+        if (emailExist){
+            return res.status(401).send({
+                status:"fail",
+                message: "Email already registered!"
+            })
+        }
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
         const newUser = await user.create({
@@ -70,6 +81,13 @@ exports.login = async (req, res) => {
                 exclude:["createdAt", "updatedAt"],
             },
         });
+
+        if(!userExist){
+            return res.status(400).send({
+                status: "failed",
+                message: "Email belum terdaftar",
+            })
+        }
 
         const isValid = await bcrypt.compare(req.body.password, userExist.password);
 

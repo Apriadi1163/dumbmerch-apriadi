@@ -34,6 +34,7 @@ function EditProduct(){
             qty: response.data.data.qty,
         });
         setProduct(response.data.data);
+        console.log(response.data)
     });
 
     useQuery("categoryCache", async () => {
@@ -107,7 +108,9 @@ function EditProduct(){
         }
     });
 
-    console.log(preview);
+    // console.log(preview);
+    // console.log(product);
+    console.log(setProduct);
 
     useEffect(() => {
         const newCategoryId = product?.category?.map((item) => {
