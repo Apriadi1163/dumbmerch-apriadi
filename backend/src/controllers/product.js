@@ -181,7 +181,7 @@ exports.updateProduct = async (req, res) => {
     let updateProduct = await product.update(
       {
         ...data,
-        // image: req.file.filename,
+        image: req.file.filename,
         idUser: req.user.id,
       },
       { where: { id } }

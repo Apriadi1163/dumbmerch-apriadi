@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/userContext"
-import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import CssLogin from "./Login.module.css"
 import { API } from "../config/api"
 
 function Login(){
     let navigate = useNavigate();
+    const [message, setMessage] = useState(null);
     const [state, dispatch] = useContext(UserContext);
 
     const [form, setForm] = useState({
@@ -33,7 +34,6 @@ function Login(){
             // }
             // console.log(form)
             const config = {
-                // method: "POST",
                 headers: {
                     'Content-type': 'application/json',
                 },
@@ -59,6 +59,25 @@ function Login(){
                 } else {
                 navigate("/homepage");
                 }
+            }else if(response.status == 405){
+                const alert = (
+                    <div className='alert alert-danger py-2 fw-bold' role='alert'>
+                        Email Belum terdaftar
+                    </div>
+                )
+                setMessage(alert)
+                setForm({
+                    name: "",
+                    email: "",
+                    password: "",
+                })
+            }else{
+                const alert = (
+                    <div className='alert alert-dark py-2 fw-bold' role='alert'>
+                        {response.message} 
+                    </div>
+                )
+                setMessage(alert)
             }
         }catch(error){
             console.log(error)
@@ -71,6 +90,7 @@ function Login(){
                     <Col md="6">
                         <Form >
                         <div className={CssLogin.info}>Login</div>
+                        {message && message}
                             <Form.Group className={CssLogin.form}>
                                 <Form.Control 
                                     onChange={handleChange} 

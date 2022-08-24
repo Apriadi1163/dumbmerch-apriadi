@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
             }
         })
         if (emailExist){
-            return res.status(401).send({
+            return res.status(405).send({
                 status:"fail",
                 message: "Email already registered!"
             })
@@ -83,7 +83,7 @@ exports.login = async (req, res) => {
         });
 
         if(!userExist){
-            return res.status(400).send({
+            return res.status(405).send({
                 status: "failed",
                 message: "Email belum terdaftar",
             })
